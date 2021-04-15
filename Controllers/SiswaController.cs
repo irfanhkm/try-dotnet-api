@@ -32,9 +32,9 @@ namespace try_dotnet_api.Controllers
         }
 
         [HttpGet("")]
-        public IActionResult GetAllSiswa()
+        public IEnumerable<SiswaEntity> GetAllSiswa()
         {
-            return Ok(this.listSiswa);
+            return this.listSiswa;
         }
 
         [HttpPost("")]
