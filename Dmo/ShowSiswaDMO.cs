@@ -9,7 +9,7 @@ namespace try_dotnet_api.Dmo
 
         public string NamaSiswa { get; set; }
 
-        public string UmurSiswa { get; set; }
+        public int UmurSiswa { get; set; }
 
         public string NamaSekolah { get; set; }
 

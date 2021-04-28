@@ -4,7 +4,7 @@
     {
         public string NamaTeman { get; set; }
 
-        public string UmurTeman { get; set; }
+        public int UmurTeman { get; set; }
 
         public string AlamatUtama { get; set; }
     }
