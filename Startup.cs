@@ -27,9 +27,13 @@ namespace try_dotnet_api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "try_dotnet_api", Version = "v1" });
             });
 
+            // modif serialize json response dan param
             services.AddMvc().AddJsonOptions(options =>
             {
+                // custom policy
                 options.JsonSerializerOptions.PropertyNamingPolicy = SnakeCaseNamingPolicy.Instance;
+                // camel case
+                // options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
         }
 

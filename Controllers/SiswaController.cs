@@ -39,9 +39,15 @@ namespace try_dotnet_api.Controllers
         }
 
         [HttpPost("")]
-        public IActionResult Post([FromBody]ParamSiswaDto param)
+        public IActionResult Post([FromBody] ParamSiswaDto param)
         {
             return Ok(SiswaFactory.ParsingSiswa(param));
+        }
+
+        [HttpPost("bulk")]
+        public IActionResult BulkPost([FromBody] List<ParamSiswaDto> param)
+        {
+            return Ok(SiswaFactory.ParsingListSiswa(param));
         }
 
         [HttpGet("{id}")]
