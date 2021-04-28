@@ -43,7 +43,7 @@ namespace try_dotnet_api.Factory
                     {
                         IdSiswa = 1,
                         NamaSiswa = data.Nama,
-                        UmurSiswa = data.Umur.ToString(),
+                        UmurSiswa = data.Umur,
                         NamaSekolah = data.NamaSekolah
                     }
                 ); ;
