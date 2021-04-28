@@ -12,5 +12,9 @@
   <ItemGroup>
     <Folder Include="Dto\" />
     <Folder Include="Entities\" />
+    <Folder Include="Dmo\" />
+    <Folder Include="Factory\" />
+    <Folder Include="Policy\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
 </Project>

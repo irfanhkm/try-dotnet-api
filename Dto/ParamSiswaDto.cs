@@ -6,6 +6,6 @@
 
         public int Umur { get; set; }
 
-        public string nama_sekolah { get; set; }
+        public string NamaSekolah { get; set; }
     }
 }

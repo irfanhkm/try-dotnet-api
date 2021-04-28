@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using try_dotnet_api.Dto;
 using try_dotnet_api.Entities;
+using try_dotnet_api.Factory;
 
 namespace try_dotnet_api.Controllers
 {
@@ -40,7 +41,7 @@ namespace try_dotnet_api.Controllers
         [HttpPost("")]
         public IActionResult Post([FromBody]ParamSiswaDto param)
         {
-            return Ok(param);
+            return Ok(SiswaFactory.ParsingSiswa(param));
         }
 
         [HttpGet("{id}")]
