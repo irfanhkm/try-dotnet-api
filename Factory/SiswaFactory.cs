@@ -17,7 +17,7 @@ namespace try_dotnet_api.Factory
                     new ShowTemanSiswaDMO()
                     {
                         NamaTeman = param.DaftarTeman[i].Nama,
-                        UmurTeman = param.DaftarTeman[i].Umur.ToString(),
+                        UmurTeman = param.DaftarTeman[i].Umur,
                         AlamatUtama = param.DaftarTeman[i].ListAlamat.AlamatUtama,
                     }
                 );
@@ -26,7 +26,7 @@ namespace try_dotnet_api.Factory
             {
                 IdSiswa = 1,
                 NamaSiswa = param.Nama,
-                UmurSiswa = param.Umur.ToString(),
+                UmurSiswa = param.Umur,
                 NamaSekolah = param.NamaSekolah,
                 ListAlamat = param.ListAlamat,
                 DaftarTeman = dmoTemanSiswa.ToArray()
