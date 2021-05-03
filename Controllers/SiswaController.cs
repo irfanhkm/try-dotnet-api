@@ -3,39 +3,24 @@ using Microsoft.AspNetCore.Mvc;
 using try_dotnet_api.Dto;
 using try_dotnet_api.Entities;
 using try_dotnet_api.Factory;
+using try_dotnet_api.Repositories;
 
 namespace try_dotnet_api.Controllers
 {
     [Route("api/siswa")]
     public class SiswaController : Controller
     {
-        private readonly List<SiswaEntity> listSiswa = new List<SiswaEntity>();
+        private readonly SiswaRepository siswaRepository;
+
         public SiswaController()
         {
-            SiswaEntity siswa1 = new SiswaEntity
-            {
-                Id = 1,
-                Nama = "Irfan",
-                Umur = 20,
-                NamaSekolah = "DOT"
-            };
-
-            SiswaEntity siswa2 = new SiswaEntity
-            {
-                Id = 2,
-                Nama = "Fulani",
-                Umur = 23,
-                NamaSekolah = "DOT"
-            };
-
-            listSiswa.Add(siswa1);
-            listSiswa.Add(siswa2);
+            this.siswaRepository = new SiswaRepository();
         }
 
         [HttpGet("")]
         public IEnumerable<SiswaEntity> GetAllSiswa()
         {
-            return this.listSiswa;
+            return this.siswaRepository.GetAll();
         }
 
         [HttpPost("")]
@@ -53,7 +38,8 @@ namespace try_dotnet_api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetDetailSiswa(int id)
         {
-            return Ok(this.listSiswa.Find(x => x.Id == id));
+            var data = siswaRepository.FindById(id);
+            return Ok(SiswaFactory.ParsingSiswaFromEntity(data));
         }
     }
 }

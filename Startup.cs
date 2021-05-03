@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using try_dotnet_api.Policy;
+using try_dotnet_api.Repositories;
 
 namespace try_dotnet_api
 {
@@ -35,6 +36,8 @@ namespace try_dotnet_api
                 // camel case
                 // options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
             });
+
+            services.AddScoped<SiswaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

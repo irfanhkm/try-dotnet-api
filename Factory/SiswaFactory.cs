@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using try_dotnet_api.Dmo;
 using try_dotnet_api.Dto;
+using try_dotnet_api.Entities;
 
 namespace try_dotnet_api.Factory
 {
@@ -30,6 +31,17 @@ namespace try_dotnet_api.Factory
                 NamaSekolah = param.NamaSekolah,
                 ListAlamat = param.ListAlamat,
                 DaftarTeman = dmoTemanSiswa.ToArray()
+            };
+        }
+
+        public static ShowSiswaDMO ParsingSiswaFromEntity(SiswaEntity param)
+        {
+            return new ShowSiswaDMO()
+            {
+                IdSiswa = 1,
+                NamaSiswa = param.NamaSiswa,
+                UmurSiswa = param.Umur,
+                NamaSekolah = "-"
             };
         }
 
