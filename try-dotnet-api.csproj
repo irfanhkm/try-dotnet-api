@@ -1,12 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>try_dotnet_api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="MySql.Data" Version="8.0.24" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dto\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Dmo\" />
+    <Folder Include="Factory\" />
+    <Folder Include="Policy\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
 </Project>

@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using try_dotnet_api.Policy;
+using try_dotnet_api.Repositories;
 
 namespace try_dotnet_api
 {
@@ -32,6 +27,17 @@ namespace try_dotnet_api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "try_dotnet_api", Version = "v1" });
             });
+
+            // modif serialize json response dan param
+            services.AddMvc().AddJsonOptions(options =>
+            {
+                // custom policy
+                options.JsonSerializerOptions.PropertyNamingPolicy = SnakeCaseNamingPolicy.Instance;
+                // camel case
+                // options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            });
+
+            services.AddScoped<SiswaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
